@@ -1,0 +1,8 @@
+{
+    "AWS_REGION": "us-east-1",
+    "AWS_ACCOUNT_NUMBER": "344726831705",
+    "DOCKER_IMAGE_NAME": "marikkar/testwebappimg:1",
+    "ECR_REPO_NAME": "ecr_testwebapp_repo",
+    "ECS_SERVICE_NAME": "ecs_testwebapp",
+    "CONTAINER_PORT": 5000
+}
