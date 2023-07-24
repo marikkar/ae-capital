@@ -9,3 +9,4 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS final
 WORKDIR /app
 COPY --from=build /publish .
 ENTRYPOINT [ "dotnet", "ae-capital.dll" ]
+EXPOSE 5000
