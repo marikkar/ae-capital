@@ -1,12 +1,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ae-capital.csproj .
-RUN dotnet restore ae-capital.csproj
+RUN dotnet restore
 COPY . .
-RUN dotnet publish ae-capital.csproj -c Realesce -o /publish
+RUN dotnet publish -c release -o /app
 
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS final
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
 WORKDIR /app
-COPY --from=build /publish .
-ENTRYPOINT [ "dotnet", "ae-capital.dll" ]
-EXPOSE 5000
+COPY --from=build /app .
+ENTRYPOINT ["dotnet", "ae-capital.dll"]
